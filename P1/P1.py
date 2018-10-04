@@ -9,7 +9,7 @@ import argparse
 Kb = 1#constant
 m = 10#mass
 wall_size = 5.0
-
+#1
 #command line input
 parser = argparse.ArgumentParser()
 parser.add_argument("-p", "--initial_position", help="initial position")
