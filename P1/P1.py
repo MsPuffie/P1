@@ -9,34 +9,32 @@ import argparse
 Kb = 1#constant
 m = 10#mass
 wall_size = 5.0
-#1
 #command line input
 parser = argparse.ArgumentParser()
 parser.add_argument("-p", "--initial_position", help="initial position")
-parser.add_argument("-v", "--initial_velosity", help="initial velosity")
+parser.add_argument("-v", "--initial_velocity", help="initial velocity")
 parser.add_argument("-T", "--temperature", help="temperature")
 parser.add_argument("-e", "--damping_coefficient", help="damping coefficient")
 parser.add_argument("-d", "--time_step", help="time step")
 parser.add_argument("-a", "--total_time", help="total time")
 args = parser.parse_args()
 ini_position = float(args.initial_position)
-vel = float(args.initial_velosity)
+vel = float(args.initial_velocity)
 T = float(args.temperature)
 e = float(args.damping_coefficient)
 del_t = float(args.time_step)
 total_t = float(args.total_time)
 
 #Langevin Equation and Euler Intergration
-sigma = math.sqrt(2*T*e*Kb)
-epsilon = []
 nt = int(total_t/del_t)
-
 #function move
 def move():
 	'''This function represents a complete movement of a particle, start from position 0 and velosity 0, stop by 
 	it hits either wall. There is Euler Intergration inside this function'''
 	v = [vel]
 	x = [ini_position]
+	epsilon = []
+	sigma = math.sqrt(2*T*e*Kb)
 	for i in range(1,nt):
 		epsilon.append(random.gauss(0,sigma))#epsilon changes in each movement
 		v.append(v[-1] + (epsilon[-1] - e*v[-1])*del_t/m)

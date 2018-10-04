@@ -1,6 +1,8 @@
 ==
 P1
 ==
+.. image:: https://coveralls.io/repos/github/MsPuffie/P1/badge.svg?branch=master
+	:target: https://coveralls.io/github/MsPuffie/P1?branch=master
 
 
 .. image:: https://img.shields.io/pypi/v/P1.svg
